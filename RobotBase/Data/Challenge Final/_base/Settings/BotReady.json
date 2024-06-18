@@ -1,0 +1,20 @@
+﻿[	
+	{"key":"UseBotReady","value":"0","description":"Defines whether the process uses BotReady or not (1/0)"},
+	{"key":"BotReadyURL","value":"https://botreadypublicapi-test.azurewebsites.net/","description":"base url of botready"},
+	{"key":"CharsToReplaceInDetail","value":"[^-\\w]","description":"regular expression to replace invalid values in detail with _"},
+	{"key":"BotReadyCredentials","value":"BotReadyCredentials","description":"credentials to connect to botready api"},
+	{"key":"BotReadyCredentialFolder","value":"","description":"orchestrator folder where credential values ​​are obtained"},
+	{"key":"LogBotReady","value":"1","description":"Enabled (1) / Disabled (0) txt log of errors"},
+	{"key":"PathLogBotReady","value":"../Data/BotReadyLogs/","description":"path where the bot save the logs"},
+	{"key":"RobotID","value":"1350","description":"id of the robot"},
+	{"key":"StartEndPoint","value":"/api/v1/start","description":"Endpoint start method"},
+	{"key":"ConnectEndPoint","value":"/api/v1/connect","description":"Endpoint connect method"},
+	{"key":"RetriesAPI","value":"3","description":"retries to try use botready api"},
+	{"key":"TimeoutRequestAPI","value":"30000","description":"amount in miliseconds to wait response from API"},
+	{"key":"CompleteEndPoint","value":"/api/v1/complete","description":"Endpoint complete method"},
+	{"key":"DetailEndPoint","value":"/api/v1/transactionDetail","description":"Endpoint TransactionDetail method"},
+	{"key":"BotReadyRobotName","value":"FWK-Queue","description":"robot name in botready"},
+	{"key":"PartialNameBRLog","value":"BotReadyErrorLog","description":"partialname of botready log file"},
+	{"key":"IgnoreIfBotreadFails","value":"0","description":"1: continues with the normal process if botready fails 0: throw the error"},
+	{"key":"BREAsSuccess","value":"0","description":"1: transactions marked as bre will not be assigned with error in botready 0: transactions marked as bre will be assigned with error in botready"}
+]

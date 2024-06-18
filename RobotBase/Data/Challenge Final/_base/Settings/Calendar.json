@@ -1,0 +1,29 @@
+﻿[
+	
+	{"comment":"Calendar Configurations"},
+	{"key":"UseCalendar","value":"0","description":"[0/1].[0] No obtiene los días excluidos de Orquestador/no busca el último día hábil. [1] Obtiene los días excluidos de Orquestador/busca el último día hábil."},
+	{"key":"CalendarName","value":"Calendario","description":"Nombre del calendario en Orquestador."},
+	{"key":"GetAllCalendarNamesEndPoint","value":"/odata/Calendars","description":"End point para obtener todos los calendarios de Orquestador."},
+	{"key":"GetExcludedDatesOfCalendarsEndPoint","value":"/odata/Calendars({CalendarID})","description":"End point para obtener el calendario mediante el ID. El ID se obtiene en ejecución."},
+	
+	{"comment":"Calendar Retries Configurations"},
+	{"key":"MaxRetriesRequestCalendarEndPoint","value":"3","description":"Ante un fallo en el llamado a Orquestador se reintenta la acción el número indicado. Ambos llamados a Orquestador utilizan el mismo número de reintentos."},
+
+	{"comment":"LastDayOfworking Configurations"},
+	{"key":"SaturdayNonWorkingDay","value":"0","description":"[0/1]. [0] Se considera el sábado como día no laboral. [1] Se considera el sábado como día laboral."},
+	{"key":"SundayNonWorkingDay","value":"0","description":"[0/1]. [0] Se considera el domingo como día no laboral. [1] Se considera el domingo como día laboral."},
+	{"key":"CultureExcludedDates","value":"en-US","description":"[0/1]. Cultura de los dias excluidos. No hábiles."},
+	{"key":"FormatExcludedDates","value":"MM/dd/yyyy hh:mm:ss","description":"[0/1]. Formato de los dias excluidos. No hábiles."},
+	{"key":"HeaderTableExcludedDates","value":"ExcludedDates","description":"[0/1]. Nombre del encabezado de la tabla con las fechas excluídas."},
+	{"key":"FormatDateToLastDayOfWork","value":"yyyyMMdd","description":"[0/1]. Formato con el que sera devuelto (String) el último día hábil."},
+	
+	
+	{"comment":"Manually date configurations"},
+	{"key":"ManuallyDateUse","value":"0","description":"[0/1]. Permite la creacion de la carpeta Screenshot por ejecucion."},
+	{"key":"ManuallyDate","value":"09/01/2022","description":"Cantidad de dias. Valor entero. Al dia actual se le restan N dias y las carpetas con fecha menor  la mecionada se eliminan."},
+	{"key":"ManuallyDateFormat","value":"MM/dd/yyyy","description":"Cantidad de dias. Valor entero. Al dia actual se le restan N dias y las carpetas con fecha menor  la mecionada se eliminan."}
+	
+	
+]
+
+

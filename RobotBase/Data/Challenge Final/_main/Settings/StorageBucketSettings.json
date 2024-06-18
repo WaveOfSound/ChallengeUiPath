@@ -1,0 +1,7 @@
+﻿[
+	{"comment":"Storage Bucket Configurations"},
+	{"key":"StorageBucketFolderPath","value":"","description":"path of storage bucket is created"},
+	{"key":"StorageBucketName","value":"Config","description":"storage bucket name"}
+	
+
+]

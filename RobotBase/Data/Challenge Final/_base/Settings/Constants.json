@@ -1,0 +1,7 @@
+[
+	{"comment":"FWK Configurations"},
+	{"key":"ProcessToKillRegex","value":"iexplore","description":"regex of processes to kill"},	
+	
+	{"comment":"Process Configurations"},
+	
+]

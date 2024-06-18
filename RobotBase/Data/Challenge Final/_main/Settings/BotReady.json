@@ -1,0 +1,11 @@
+﻿[	
+	{"key":"UseBotReady","value":"0","description":"Defines whether the process uses BotReady or not (1/0)"},
+	{"key":"BotReadyURL","value":"https://botreadypublicapi.azurewebsites.net/","description":"base url of botready"},
+	{"key":"BotReadyCredentials","value":"BotReadyCredentials","description":"credentials to connect to botready api"},
+	{"key":"BotReadyCredentialFolder","value":"","description":"orchestrator folder where credential values ​​are obtained"},
+	{"key":"LogBotReady","value":"1","description":"Enabled (1) / Disabled (0) txt log of errors"},
+	{"key":"PathLogBotReady","value":"../Data/BotReadyLogs/","description":"path where the bot save the logs"},
+	{"key":"RobotID","value":"","description":"id of the robot"},
+	{"key":"BotReadyRobotName","value":"FWK-Queue","description":"robot name in botready"},
+	{"key":"BREAsSuccess","value":"0","description":"1: transactions marked as bre will not be assigned with error in botready 0: transactions marked as bre will be assigned with error in botready"}
+]

@@ -1,0 +1,73 @@
+﻿[
+	{"comment":"FWK messages"},
+	{"key":"ProcessStart","value":"Process - Start - Transaction id: {0}. Retry {1}","description":"start message of the process. {0} replaces by Transaction id and [1} by the retry number"},
+	{"key":"ProcessError","value":"Process - Error - Transaction id: {0} - Exception Message: {1} at source: {2}","description":"process error message.{0} will replace by the transaction id {2} will replaced by the exception source and {1} by the exception message"},
+	{"key":"ProcessEnd","value":"Process - End - Transaction id: {0}","description":"end message of the process. {0} replaces by Transaction id"},
+	{"key":"ProcessUnexpectedError","value":"An unexpected error ocurred in the Process Transaction. Timeout reached.","description":"message that appear when the timeout of process parallel is reached"},
+	{"key":"TakeScreenshotError","value":"An error has ocurred taking the screenshot","description":"error message in send email when take screenshot or related fails"},
+	{"key":"TakeScreenshotSuccess","value":"Screenshot created. Path {0}","description":"screenshot success message, {0} will replace by the screenshot path"},
+	{"key":"SendEmailError","value":"Send Email - Error. Mensaje {0}. Fuente del error {1}","description":"message that appear when fails the error or po error emails fails"},
+	{"key":"GetTransactionDataError","value":"Error in get transaction data. Transaction ID: {0}. Exception message {1} at source {2} ","description":"error that appear with some error in GTD"},
+	{"key":"TransactionSuccess","value":"Transaction Succesful","description":"success transaction message (settransactionstatus)"},
+	{"key":"BusinessRuleException","value":"Transaction with business rule exception. {0}","description":"message that appear when a transaction finish with BRE (settransactionstatus) {0} replaces by message"},
+	{"key":"STSError","value":"Error in SetTransactionStatus. Error: {0} at {1}.","description":"message that appear when fail something in some of the state of STS (settransactionstatus) {0} replaces by error message and {1}"},
+	{"key":"ApplicationException","value":"Transaction with system error. Error: {0} at {1}. Retry number {2}","description":"message when SE occurs with retries (settransactionstatus){0} replaces by error message and {1} by the source and {2} by the current retry number"},
+	{"key":"ApplicationExceptionMaxRetries","value":"Transaction with system error. Max number of retries reached. Error: {0} at {1}","description":"message when SE occurs with max retries (settransactionstatus) {0} replaces by error message and {1} by the source"},
+	{"key":"BotReadyStartExpectedError","value":"could not generate the job id or token","description":"message when SE occurs with no retries (settransactionstatus) {0} replaces by error message and {1} by the source"},
+	{"key":"NoMoreData","value":"Process finished due to no more transaction data","description":"menssage when does not exists more data to process"},
+	{"key":"GetTransactionData","value":"Processing transaction number: {0}","description":"menssage when start a new transaction. {0} replaces by transaction number"},
+	{"key":"StopProcessRequest","value":"Stop process requested or not allowed hour reached.","description":"message that appear when stop process signal is true"},
+	{"key":"FailedFinalEmail","value":"Final email sending failed. Message: {0}. Activity: {1}","description":"message for error in the final email sending"},
+	{"key":"FailedForceStopEmail","value":"ForceStop email sending failed. Message: {0}.","description":"message for error in the forceStop email sending"},
+	{"key":"WrongEmailMode","value":"The selected email mode is wrong","description":"message that appear when a wrong email mode is selected"},
+	{"key":"WrongGetEmailMode","value":"The selected get email mode is wrong","description":"message that appear when a wrong get email mode is selected"},
+	{"key":"WrongInputMode","value":"The selected input mode is wrong","description":"message that appear when a wrong input mode is selected"},
+	{"key":"BotreadyJobId","value":"The generated BotReady Execution ID is {0}","description":"message that shown the generated botready job id, {0} will replaced by the job id"},
+	{"key":"AmountOfTransactionsToBeProcessed","value":"Amount of transactions to be processed: {0}","description":"shows how much transactions are to be process {0} will be replaced by the amount"},
+	{"key":"ForceStopProcess","value":"The process stops due to the following error {0}. Activity: {1}","description":"message for exception when an exception occurred"},
+	{"key":"UserFriendlySEEnable","value":"User friendly system error message, enabled","description":"UserFriendlySE enable message"},	
+	
+	{"comment":"FWK generic messages"},
+	{"key":"GenericStartMessage","value":"{0} - Inicio","description":"generic start message"},
+	{"key":"GenericErrorMessage","value":"{0} - Error. Fuente del Error: {1} - Mensaje: {2}","description":"generic error message {0} will replaced by the exception source and {1} by the exception message"},
+	{"key":"GenericEndMessage","value":"{0} - Fin","description":"generic end message"},
+	{"key":"LogScreenServidor","value":"The primary screen resolution is: {0} x {1}","description":"log message screen servidor"},
+	
+	
+	{"comment":"FWK user friendly system exception message"},
+	{"key":"GenericSE","value":"One error occurs with the interaction between the bot and the application","description":"Generic exception message"},	
+	{"key":"SelectorSE","value":"Selector not found","description":"Selector error message"},
+	{"key":"SelectorInvalidWindowSE","value":"Invalid window","description":"Invalid window error message"},
+	{"key":"SelectorFindElementSE","value":"Can't found element in the application","description":"Find element error message"},
+	
+
+	{"comment":"Status words and results"},
+	{"key":"ManualProcessingWord","value":"Manual Processing","description":"manual processing status"},
+	{"key":"ProcessedWord","value":"Processed","description":"success status"},
+	{"key":"ErrorWord","value":"System Error","description":"error status"},
+	{"key":"FatalErrorWord","value":"Fatal Error","description":"fatal error status"},
+	{"key":"ManuallyStoppedWord","value":"Manually Stopped","description":"Manually Stopped status"},
+	{"key":"SuccessResult","value":"Successfully processed","description":"message for success result"},
+	{"key":"EmptyResult","value":"The result of the transaction was empty","description":"message for exception when the result is empty in process finally"},
+	{"key":"ManuallyProcessed","value":"The process was manually processed at {0}","description":"message that appears when the process is manually stopped - {0} will be replaced by the current datetime"},
+	
+	{"comment":"Calendar_GetExcludedDates Messages"},
+	{"key":"CalendarToSearch","value":"Calendario a buscar: {0}","description":"info message to describe calendar to search"},
+	{"key":"CalendarID","value":"ID del calendario: {0}","description":"info message to inform the id of the calendar found"},
+	{"key":"CalendarNotFound","value":"No se encontro el calendario en orquestador.","description":"alert message to inform if the calendar was not found"},
+	{"key":"CalendarMaxRetryExhausted","value":"The max retry exhausted.","description":"alert message to inform that the maximum retries have been exhausted"},
+	
+	{"comment":"Calendar_ValidateLastDayOfWork Messages"},
+	{"key":"LastDayOfWorkTableWithoutExcludedDates","value":"The table not contains excluded dates.","description":"info message to inform that the table does not contains excluded dates"},
+	{"key":"LastDayOfWorkObtained","value":"Last day of work obtained: {0}","description":"info message to inform the last working date"},
+	
+	{"comment":"File/Folder Actions System messages"},
+	{"key":"InfoMsgCreatedFolder","value":"Se creó la siguiente carpeta: {0}","description":"message when a folder is created"},
+	{"key":"InfoMsgDeleteFolder","value":"Se eliminó la siguiente carpeta: {0}","description":"message when a folder is deleted"},
+	{"key":"InfoMsgCopyFile","value":"Se copió el siguiente archivo: {0}","description":"message when a file is copied"},
+	{"key":"WarningMsgCopyFile","value":"The following template does not exists in the template folder: {0}","description":"message when a file does not exists in the template folder"},
+	
+	{"comment":"Business messages"},
+	{"key":"ErrorMessage_NoProduct","value":"Producto no disponible","description":""}	
+	
+]

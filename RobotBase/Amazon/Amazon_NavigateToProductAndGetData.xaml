@@ -1,0 +1,252 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Amazon_NavigateToProductAndGetData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dicLanguage" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_drCurrentRow" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_BrowserInstance" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="out_CurrentProductPrice" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CurrentProductDetail" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>919,927</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Example_workflow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="56">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Amazon_NavigateToProductAndGetData" sap:VirtualizedContainerService.HintSize="552,862" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
+      <Variable x:TypeArguments="ui:CurrentJobInfo" Name="jobCurrentScopeInfo" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetCurrentJobInfo DisplayName="Get current execution scope" sap:VirtualizedContainerService.HintSize="490,25" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobCurrentScopeInfo]" />
+    <Assign DisplayName="Assign Workflow name" sap:VirtualizedContainerService.HintSize="490,81" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strWorkflowName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[jobCurrentScopeInfo.WorkflowName]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <TryCatch DisplayName="Try Amazon_NavigateToProductAndGetData" sap:VirtualizedContainerService.HintSize="490,565" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="668,1533" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log start" sap:VirtualizedContainerService.HintSize="606,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(in_dicLanguage(&quot;GenericStartMessage&quot;),strWorkflowName)]" />
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Current Amazon Instance" sap:VirtualizedContainerService.HintSize="606,1290" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_BrowserInstance]" OpenMode="Never" ScopeGuid="7a2faeff-f21f-4cb1-bc9f-5d957ebfea74" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="572,1153" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGoToUrl DisplayName="Go to product url" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[in_drCurrentRow(&quot;URL&quot;).ToString]" Version="V3" />
+                  <uix:NGetText DisplayName="Get Product Price" sap:VirtualizedContainerService.HintSize="510,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="7a2faeff-f21f-4cb1-bc9f-5d957ebfea74" TextString="[out_CurrentProductPrice]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Unidapt-Adapter-Grounded-Adaptor-Converter/dp/B08D741PV6/?_encoding=UTF8&amp;pd_rd_w=jijKL&amp;content-id=amzn1.sym.59e06f17-139e-49a4-ada7-b8439f50bb02&amp;pf_rd_p=59e06f17-139e-49a4-ada7-b8439f50bb02&amp;pf_rd_r=2C0A240NGGT8EAAY6T8W&amp;pd_rd_wg=9bQhE&amp;pd_rd_r=2c145a53-a3ce-40e4-9153-dd68bc9aa91d&amp;ref_=pd_gw_exports_top_sellers_unrec&amp;language=es_US&amp;currency=CLP&amp;th=1" DesignTimeRectangle="1137, 330, 73, 35" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'7,469'" FullSelectorArgument="&lt;webctrl class='a-price-whole' parentid='corePrice_feature_div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='a-price-whole' parentid='corePrice_feature_div' tag='SPAN' type='' /&gt;" Guid="6446f6e8-1deb-4984-ad25-99e38196a6b1" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com: Unidapt US Travel Plug Adapter, EU,AU,UK,NZ,CN,in to USA (Type B), Grounded 3 Prong USA Wall Plug, EU to US Travel Adaptor and Converter, Power Outlet Charger (1-Pack) : Tools &amp;amp; Home Improvement' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="1114, 334, 23, 17" ElementType="Text" FriendlyName="'CLP'" FullSelectorArgument="&lt;webctrl class='a-price-symbol' parentid='corePrice_feature_div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='a-price-symbol' parentid='corePrice_feature_div' tag='SPAN' type='' aaname='CLP' check:innerText='CLP' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAVCAYAAAC33pUlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVEhL7ZMxawIxFMf7CQ7uQ5SsQunSxaW7CLaTlMJ1dCvdnBw69G46nOwkdLI32UGwQ9GlaKHg1qVwi8NtGQonOPxN9JFcrEWsqXTwBw/u5R388vKSA+yQvcwK/0Q24eB8Qsm2cHz0e99l/LUO74TBcV2KHMJ3WUnQunRRjpL5fyZD+Op/GQzHV/cYcSpT3ZClbwFOWQG15xjplBa/OH2vk12gNaZ0ytG7zcOptEVPkhEaxUJWFqN55qLUjClfZgOZRGzccQMMKJVoGe/iWrTvz49sFZvJ0pcqHBaInjRaNn5EeXl3ButkeXi1OsJQRhUlxuBF5ilpWdKGt1VnWtaIuhh8qtuhMGdWFDN7sDSzFWRkYmydGxyyc/h98zYu3ptlmSR+Eud9lH0zOVQ6UrCQ6XWKu6Go/VKmUB3Z42fZH7CXWWGHMmAGpMw/IOxP9zwAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                            <uix:Target DesignTimeRectangle="1115, 639, 204, 29" ElementType="Button" FriendlyName="'Add to Cart'" FullSelectorArgument="&lt;webctrl id='add-to-cart-button' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='add-to-cart-button' tag='INPUT' type='submit' class='a-button-input' aaname='Add to Shopping Cart' check:text='Add to Cart' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <uix:NGetText DisplayName="Get Product Detail" sap:VirtualizedContainerService.HintSize="510,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="7a2faeff-f21f-4cb1-bc9f-5d957ebfea74" TextString="[out_CurrentProductDetail]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Unidapt-Adapter-Grounded-Adaptor-Converter/dp/B08D741PV6/?_encoding=UTF8&amp;pd_rd_w=jijKL&amp;content-id=amzn1.sym.59e06f17-139e-49a4-ada7-b8439f50bb02&amp;pf_rd_p=59e06f17-139e-49a4-ada7-b8439f50bb02&amp;pf_rd_r=2C0A240NGGT8EAAY6T8W&amp;pd_rd_wg=9bQhE&amp;pd_rd_r=2c145a53-a3ce-40e4-9153-dd68bc9aa91d&amp;ref_=pd_gw_exports_top_sellers_unrec&amp;language=es_US&amp;currency=CLP&amp;th=1" DesignTimeRectangle="1114, 389, 206, 60" DesignTimeScaleFactor="1" FriendlyName="'FREE delivery'" FullSelectorArgument="&lt;webctrl id='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE' tag='DIV' type='' class='a-spacing-base' aaname='' /&gt;" Guid="06c67dfa-ddb4-4ebd-b8de-6e5a3ff11d5b" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com: Unidapt US Travel Plug Adapter, EU,AU,UK,NZ,CN,in to USA (Type B), Grounded 3 Prong USA Wall Plug, EU to US Travel Adaptor and Converter, Power Outlet Charger (1-Pack) : Tools &amp;amp; Home Improvement' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="1114, 370, 47, 18" ElementType="Text" FriendlyName="'Details'" FullSelectorArgument="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' type='' aaname=' Details ' check:innerText='Details' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAWCAYAAABtwKSvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMGSURBVFhH7ZVdSFRBFMd9CSKCoB6KoiKK6qGXgqKngp4i6DF6KwiCHooehIxCMCvbMq21/MosS0PNUDErP0oKszbE1HL92FZNy8/9yq913XU93f+5d5ZVr/euUbDE/mG4zNwzc85v5syZKPqPFIEJV0VgwlVhB2OxOei1pZsmfT5lJHQFYCa8XjpR+IK2GTK5HUh/QjHlNdTwc4BmZhSjfyDzoI02XL5LeQ0t3DfW1tP265k0ODrO/cUoADM+5aVD9wvpYFYBlZktVNTcRsfzn9PSmBsUW/GOvNN+xVJbFe2dvA7WC0X2CTcZaj4yFPRXYU49e6WMyCptsdDK2Fv01tqjjMiCfXP/EHU5XLNAc+q/qMKg32l3kamnj0YmPcrofKnBOCTg+t5+HvNrpIkuzC/J8b7UXE45CGtlf2qiVRLg5oR0Whd/h/amPCKrzcnzo6ITAk0Edc/USMsv3KSthgzaeCWVTzvjw2deD/9hhxOFgmF8fj/FVdbOmnu2tJrt1KQLg+BPPn1Jx6SUw+JtQ3Z2Vtv1g/873ZO0Py2P0uoauI9g5p6M2+sL7Cg+CFDYaMGg7UjMomqpIAghhoWkCwNh7MjjYvL4pjmN9hhzuOoIh7hbYp4aDAQIpAvGg220YJCOKETw3THs0C1EujBi/ExJFffhbNn5RD52UfnQskxNgf9zYZr6hmjLNTklMQ/zQ4GBel0jdDS3hJacM9Cu5AdU1y1nhJp0YVCaV8cZqfhrB/dR5Xbffsi7rKa5MCj5h7OLOLXEzgbb6MEIYZ34qveavufBIGWwEFp56zfedQQjKlD7sJ02XU3jkxD3ANVMOMDd2ZmczfPxf8wjrytgEFR02RtNGJxe/8gYrwt7ofxG8+JggqvR2kspHMSoZ0qxkoUXeo10WkgXVDV84Qiy2p0Mg/m4vMNjE1TQ2Mo2OOH10gN5urhyQZiWAfkRxZjpex+n54qLSZyi+GKDF1IAZrHCrtvG3RxsKA8qAoe91juhJpjjJELx88cw4agITLgqAhOeIvoNRlJpImmGPzQAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <If Condition="[out_CurrentProductDetail.Contains(in_Config(&quot;ProductDetailToValidate&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="510,522" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[out_CurrentProductDetail]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[in_Config("ConstantYes").ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[out_CurrentProductDetail]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[in_Config("ConstantNo").ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Error" sap:VirtualizedContainerService.HintSize="450,333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log error" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[String.Format(in_dicLanguage(&quot;GenericErrorMessage&quot;),strWorkflowName,exception.Source,exception.Message)]" />
+              <Throw DisplayName="Throw Business Exception" Exception="[New BusinessRuleException(in_dicLanguage(&quot;ErrorMessage_NoProduct&quot;))]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:LogMessage DisplayName="Log end" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[String.Format(in_dicLanguage(&quot;GenericEndMessage&quot;),strWorkflowName)]" />
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

@@ -1,0 +1,335 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Email_SendEmailMain" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strTemplatePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_arrReplaceParameters" Type="InArgument(s:String[])" />
+    <x:Property Name="in_strSubject" Type="InArgument(x:String)" />
+    <x:Property Name="in_strTo" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_strFrom" Type="InArgument(x:String)" />
+    <x:Property Name="in_strName" Type="InArgument(x:String)" />
+    <x:Property Name="in_strBCC" Type="InArgument(x:String)" />
+    <x:Property Name="in_strCC" Type="InArgument(x:String)" />
+    <x:Property Name="in_lstAttachments" Type="InArgument(scg:List(x:String))" />
+    <x:Property Name="in_dicLanguage" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="in_strAssetCredentialName" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1205,2117</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="52">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Email_SendEmailMain" sap:VirtualizedContainerService.HintSize="756,2052" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try send email main" sap:VirtualizedContainerService.HintSize="694,1941" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Variables>
+        <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
+      </TryCatch.Variables>
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="656,1713" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Int32" Name="intCurrentRetry" />
+            <Variable x:TypeArguments="x:Int32" Name="intMaxRetry" />
+            <Variable x:TypeArguments="x:String" Name="strNewBody" />
+            <Variable x:TypeArguments="ui:CurrentJobInfo" Name="jobCurrentScopeInfo" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetCurrentJobInfo DisplayName="Get current execution scope" sap:VirtualizedContainerService.HintSize="594,25" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobCurrentScopeInfo]" />
+          <Assign DisplayName="Assign Workflow name" sap:VirtualizedContainerService.HintSize="594,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strWorkflowName]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[jobCurrentScopeInfo.WorkflowName]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="594,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[String.Format(in_dicLanguage(&quot;GenericStartMessage&quot;),strWorkflowName)]" />
+          <Sequence DisplayName="Body generation" sap:VirtualizedContainerService.HintSize="594,625" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Int32" Name="intKey" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap2010:Annotation.AnnotationText="Carga la variable TemplateMail con el codigo html del archivo que recibe como parametro in_TemplatePath" DisplayName="read template" sap:VirtualizedContainerService.HintSize="532,124" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[strNewBody]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[File.ReadAllText(new FileInfo(in_strTemplatePath).FullName)]</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+            <ui:ForEach x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Recorro todos los parametros y los reemplaza en el template" CurrentIndex="[intKey]" DisplayName="replace parameters in body" sap:VirtualizedContainerService.HintSize="532,350" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_arrReplaceParameters]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="replace current parameter" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[strNewBody]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[strNewBody.Replace("{"+intKey.ToString+"}", item.ToString)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEach>
+          </Sequence>
+          <Sequence DisplayName="retries initializations" sap:VirtualizedContainerService.HintSize="594,81" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="assign max retries" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[intMaxRetry]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[CInt(in_Config("AmountOfRetrySendEmail"))]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Assign current retry 0" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[intCurrentRetry]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+          <ui:LogMessage DisplayName="Log Message - Information" sap:VirtualizedContainerService.HintSize="594,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Information:&quot; + Environment.NewLine +&#xA;&quot;&#x9;- From: &quot; + in_strFrom + Environment.NewLine + &#xA;&quot;&#x9;- Name: &quot; + in_strName + Environment.NewLine +&#xA;&quot;&#x9;- To: &quot; + in_strTo + Environment.NewLine +&#xA;&quot;&#x9;- CC: &quot; + in_strCC + Environment.NewLine +&#xA;&quot;&#x9;- BCC: &quot; + in_strBCC + Environment.NewLine +&#xA;&quot;&#x9;- Subject: &quot; + in_strSubject + Environment.NewLine +&#xA;&quot;&#x9;- Body: &quot; + strNewBody+ Environment.NewLine +&#xA;&quot;&#x9;- Attachments: &quot; + Environment.NewLine +&#xA;&#x9; If(in_lstAttachments IsNot Nothing AndAlso in_lstAttachments.count &gt;0,String.Join(Environment.NewLine,in_lstAttachments.Select(Function(item) item)),String.empty)]" />
+          <Switch x:TypeArguments="x:Int32" DisplayName="Select send email by mode" Expression="[Cint(in_Config(&quot;SendEmailMode&quot;))]" sap:VirtualizedContainerService.HintSize="594,365" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch.Default>
+              <ui:LogMessage DisplayName="Log Message - wrong email mode" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Warn" Message="[String.Format(in_dicLanguage(&quot;WrongEmailMode&quot;),in_Config(&quot;SendEmailMode&quot;).ToString)]" />
+            </Switch.Default>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="1" DisplayName="Invoke -  SendEmailSMPT" sap:VirtualizedContainerService.HintSize="378,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Utils\Email\Email_SendEmailSMPT.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicLanguage">[in_dicLanguage]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strFrom">[in_strFrom]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strName">[in_strName]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strTo">[in_strTo]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCC">[in_strCC]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBCC">[in_strBCC]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strSubject">[in_strSubject]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCredentialName">[in_strAssetCredentialName]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_intPort">[Cint(in_Config("SMTPPort").ToString)]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strServer">[in_Config("SMTPServer").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBody">[strNewBody]</InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_lstAttachments">[in_lstAttachments]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="2" DisplayName="Invoke - SendMailOutlook" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Utils\Email\Email_SendMailOutlook.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicLanguage">[in_dicLanguage]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strSubject">[in_strSubject]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCc">[in_strCC]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBcc">[in_strBCC]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBody">[strNewBody]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strTo">[in_strTo]</InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_lstAttachments">[in_lstAttachments]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="3" DisplayName="Invoke - SendMailGraphAPISecret" sap:VirtualizedContainerService.HintSize="363,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Utils\Email\Email_SendMailGraphAPISecret.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicLanguage">[in_dicLanguage]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strSubject">[in_strSubject]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCc">[in_strCC]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBcc">[in_strBCC]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBody">[strNewBody]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strTo">[in_strTo]</InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_lstAttachments">[in_lstAttachments]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strAccount">[in_Config("Office365Account").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCredentialName">[in_Config("Office365Credential").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strTenant">[in_Config("Office365Tenant").ToString]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="4" DisplayName="Invoke - SendMailGraphAPI" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Utils\Email\Email_SendMailGraphAPI.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                  <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicLanguage">
+                  <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_dicLanguage" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strSubject">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strSubject" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCc">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strCC" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBcc">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strBCC" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBody">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strNewBody" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strTo">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strTo" />
+                </InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_lstAttachments">
+                  <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="in_lstAttachments" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strTenant">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Office365Tenant&quot;).ToString" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCredentialApplicationID">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Office365AppIDCredential&quot;).ToString" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strCredentialEmail">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Office365Credential&quot;).ToString" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strFrom">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strFrom" />
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Switch>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="660,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="450,268" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - Exception" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[String.Format(in_dicLanguage(&quot;GenericErrorMessage&quot;),strWorkflowName,exception.Source,exception.Message)]" />
+              <Rethrow DisplayName="Rethrow ex" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(in_dicLanguage(&quot;GenericEndMessage&quot;),strWorkflowName)]" />
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

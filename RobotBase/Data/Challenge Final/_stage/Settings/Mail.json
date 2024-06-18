@@ -1,0 +1,45 @@
+﻿[
+	{"comment":"Credentials"},
+	{"key":"MailSECredential","value":"CredentialMail","description":"Credential asset to send system error email"},
+	{"key":"MailBRCredential","value":"CredentialMail","description":"Credential asset to send botready error email"},
+	{"key":"FinalEmailCredential","value":"CredentialMail","description":"Credential asset to send system error email, if is not used, can be blank"},
+	{"key":"Office365Credential","value":"","description":"Credential to send emails with graphapi, if is not used, can be blank"},
+		
+	{"comment":"Get Email configurations"},
+	{"key":"MailGetCredential","value":"CredentialMailGetExchange","description":"Credential asset to get input email"},
+	{"key":"GetEmailFolder","value":"Inbox","description":"Folder where the bot will take the emails"},
+	
+	{"comment":"Graph API configurations"},
+	{"key":"Office365Account","value":"","description":"account to send emails with graph api secret, if is not used, can be blank"},
+	{"key":"Office365Tenant","value":"","description":"office 365 tenant to send emails with graphapi, if is not used, can be blank"},
+	{"key":"Office365AppIDCredential","value":"CredentialOffice365APIEmail","description":"office 365 appid and secret to send emails with graphapi, if is not used, can be blank"},
+	
+	{"comment":"Error email configurations. same configurations are used in GTD error email"},
+	{"key":"EmailErrorTo","value":"santiago_lopez@edsa.com.ar","description":"recipients separated by ;"},
+	{"key":"EmailErrorBCC","value":"","description":"bcc of the email"},
+	{"key":"EmailErrorCC","value":"","description":"cc of the email"},
+	{"key":"EmailErrorFrom","value":"","description":"email from, must be the same than the credential"},
+	{"key":"EmailErrorName","value":"","description":"name of the sender"},
+	
+	{"comment":"Project owner Error email configurations. same configurations are used in GTD error email"},
+	{"key":"EmailErrorPOTo","value":"","description":"recipients separated by ;.if this configuration is empty, the email will not be sended."},
+	{"key":"EmailErrorPOBCC","value":"","description":"bcc of the email"},
+	{"key":"EmailErrorPOCC","value":"","description":"cc of the email"},
+	{"key":"EmailErrorPOFrom","value":"santiago_lopez@edsa.com.ar","description":"email from, must be the same than the credential"},
+	{"key":"EmailErrorPOName","value":"santiago_lopez@edsa.com.ar","description":"name of the sender"},
+	
+	{"comment":"BotReady error email configurations"},
+	{"key":"BREmailTo","value":"santiago_lopez@edsa.com.ar","description":"recipients (separated by ;)"},
+	{"key":"BREmailCC","value":"","description":"copy recipients (separated by ;)"},
+	{"key":"BREmailBCC","value":"","description":"blind copy recipients (separated by ;)"},
+	{"key":"BREmailFrom","value":"santiago_lopez@edsa.com.ar","description":"email sender, must be the same than the credential"},
+	{"key":"BREmailName","value":"santiago_lopez@edsa.com.ar","description":"name sender"},
+	
+	{"comment":"Final email configurations"},
+	{"key":"FinalEmailTO","value":"santiago_lopez@edsa.com.ar","description":"recipients (separated by ;)"},
+	{"key":"OutputSubjectDateFormat","value":"ddMMyyyyHHmmss","description":"datetime format for the subeject"},
+	{"key":"FinalEmailBCC","value":"","description":"copy recipients (separated by ;)"},
+	{"key":"FinalEmailCC","value":"","description":"blind copy recipients (separated by ;)"},
+	{"key":"FinalEmailFROM","value":"","description":"email sender, must be the same than the credential"},
+	{"key":"FinalEmailName","value":"","description":"name sender"}
+]

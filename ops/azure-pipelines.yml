@@ -1,0 +1,63 @@
+name: $(Date:yyyy.MM.)$(Rev:rr)
+
+variables:
+  - name: UiPathFolder 
+    value: $(paramUiPathFolder)
+  - name: doDeploy 
+    value: $(paramDoDeploy)
+  - name: orchestratorConnection 
+    value: $(paramOrchestratorConnection)
+  - name: buildNumber 
+    value: $(Build.BuildNumber)
+    
+
+trigger: none
+  
+pool:
+  vmImage: windows-latest
+
+
+steps:
+
+- powershell: |
+    Write-Host "Enabled deploy:" $(doDeploy)
+- task: BatchScript@1
+  displayName: 'Batch pre deploy script execution'
+  inputs:
+    filename: '$(Build.SourcesDirectory)/ops/preDeployBatchScript.bat'
+
+- task: PowerShell@2
+  displayName: 'Powershell pre deploy script execution'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)/ops/preDeployPowershellScript.ps1'
+- task: UiPathInstallPlatform@3
+  inputs:
+    cliVersion: 'WIN_22.10.8438.32859'
+- task: UiPathPack@3
+  displayName: 'Build UiPath package'
+  inputs:
+    versionType: 'ManualVersion'
+    version: '$(buildNumber)'
+    projectJsonPath: '$(Build.SourcesDirectory)/RobotBase'
+    outputType: 'None'
+    orchestratorConnection: '$(orchestratorConnection)'
+    outputPath: '$(Build.ArtifactStagingDirectory)'
+    traceLevel: 'Warning'
+
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifact'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'pckg'
+    publishLocation: 'Container'
+
+
+- task: UiPathDeploy@3
+  condition: eq(variables.doDeploy, 'true')
+  displayName: 'Deploy package'
+  inputs:
+    orchestratorConnection: $(orchestratorConnection)
+    packagesPath: '$(Build.ArtifactStagingDirectory)'
+    folderName: '$(UiPathFolder)'
+    traceLevel: 'Warning'

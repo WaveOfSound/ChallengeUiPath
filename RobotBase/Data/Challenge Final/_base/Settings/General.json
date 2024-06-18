@@ -1,0 +1,14 @@
+﻿[
+	{"key":"NotAllowedHours","value":"","description":"list (separated by comma) of schedule from-to in HH:mm:ss (24 format) to not allowed hours to process (can be empty) example: 05:00:00-09:30:10,19:00:14-22:00:00"},
+	{"key":"RobotName","value":"Challenge Final","description":"robot name"},
+	{"key":"FolderOrchestratorQueue","value":"","description":"Path to the folder where the queue is created in Orchestrator"},
+	{"key":"ProcessQueue","value":"FWK-Queue","description":"Process Queue"},
+	{"key":"BatchSize","value":"","description":"process batchsize transactions per executions. if the value is empty, all transactions will be process"},
+	
+	{"comment":"used for Excel input mode, not needed it if InputMode is not 2"},
+	{"key":"CreateInput","value":"0","description":"0: not create input 1:create input"},
+	{"key":"OnlyCreateInputOnce","value":"1","description":"0: the bot will try create the input multiple times 1:the bot will try create the input once"},
+	{"key":"AlwaysMoveToProcessed","value":"0","description":"0: use the default rules to move the file 1:always move the file to process"},
+	{"key":"BatchSizePerFile","value":"1","description":"only for inputmode 2 - 0: unique batchsize for all files 1:the batchsize is per file"},
+	{"key":"AmountOfInputsToProcess","value":"","description":"the value must be > 0 . this value indicate the amount of inputs to process, if blank all inputs will be processed"}
+]

@@ -1,0 +1,12 @@
+[
+	{"comment":"FWK Configurations"},
+	{"key":"ProcessToKillRegex","value":"iexplore","description":"regex of processes to kill"},
+	{"key":"ConstantYes","value":"Si","description":""},
+	{"key":"ConstantNo","value":"No","description":""},
+	
+	{"comment":"Process Configurations"},
+	{"key":"AmazonUrl","value":"www.amazon.com","description":"Amazon web url"},
+	{"key":"InputPriceColumn","value":"Precio","description":"Price column for input file"},
+	{"key":"InputDetailColumn","value":"Free Delivery?","description":"Detail column for input file"},
+	{"key":"ProductDetailToValidate","value":"FREE delivery","description":"text to validate in product detail"}
+]

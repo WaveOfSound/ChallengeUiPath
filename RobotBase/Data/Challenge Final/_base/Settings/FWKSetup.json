@@ -1,0 +1,68 @@
+﻿[
+	{"comment":"These configurations define how the process works, should be configured at the beginning of the development because any change could modify the process behavior"},
+	
+	{"comment":"BotReady execution details configurations"},
+	{"key":"KeysOfTransactionItemToBotReadyDetail","value":"","description":"Keys that are in the TransactionItem to be added in Botready execution detail"},
+	{"key":"KeysOfTransactionDataToBotReadyDetail","value":"ProcessStatus,TransactionExecutionDate","description":"Keys that are in the TransactionData to be added in Botready execution detail"},
+	{"key":"OrderedBotReadyExecutionKeys","value":"ProcessStatus,TransactionExecutionDate","description":"keys to replace in BotReadyDetail by order of appearance in this configuration"},
+	{"key":"BotReadyDetail","value":"Process Status: {0} - ID: {1}","description":"execution detail, each parameter will be replaced by the key according to the order of the key OrderedBotReadyExecutionKeys."},
+	
+	{"comment":"BotReady aditional details configurations"},
+	{"key":"KeysOfTransactionItemToBotReady","value":"","description":"Keys that are in the TransactionItem to be added in Botready transaction detail"},
+	{"key":"KeysOfTransactionDataToBotReady","value":"TransactionExecutionDate,ProcessResult,ProcessStatus","description":"Keys that are in the TransactionData to be added in Botready transaction detail"},
+	{"key":"OrderedBotReadyColumns","value":"ProcessResult,ProcessStatus,TransactionExecutionDate","description":"Ordered botready columns"},
+	{"key":"ShowEmptyValues","value":"0","description":"0: the keys with empty values will now be displayed. 1: all keys configured will be displayed"},
+	
+	
+	{"key":"KeysOfTransactionItemToOutput","value":",","description":"Keys that are in the TransactionItem to be added in Output detail"},
+	{"key":"KeysOfTransactionDataToOutput","value":"TransactionExecutionDate,ProcessResult,ProcessStatus","description":"Keys that are in the TransactionData to be added in Output detail"},
+	
+	{"key":"KeysOfTransactionItemToInsight","value":"","description":"Keys that are in the TransactionItem to be added in insight log"},
+	{"key":"KeysOfTransactionDataToInsight","value":"TransactionExecutionDate,ProcessResult,ProcessStatus","description":"Keys that are in the TransactionData to be added in insight log"},
+	
+	{"key":"TransactionExecutionDateFormat","value":"ddMMyyyy HHmmss","description":"date format for the transaction execution date"},
+	
+	
+	{"key":"BackupTransactionDataKeys","value":"OutputPath,DateTimeLastWorkDay,StringLastWorkDay","description":"Keys that are in the TransactionData to be backuping after clean. Required keys into list: [OutputPath,DateTimeLastWorkDay,StringLastWorkDay]"},
+	
+	{"key":"OrderedOutputColumns","value":"TransactionExecutionDate,ProcessStatus,ProcessResult","description":"Ordered output columns"},
+	
+	
+	{"key":"PathKeysMapping","value":"Data\\KeyMapping.xlsx","description":"path of the excel map for keys"},
+	{"key":"SheetKeysMapping","value":"Mapping","description":"sheet of the excel map for keys"},
+	{"key":"RangeKeysMapping","value":"","description":"range of the excel map for keys"},
+	{"key":"LeftKeyKeysMapping","value":"Key","description":"left key of the excel map for keys"},
+	{"key":"RightKeyKeysMapping","value":"Mapping","description":"right key of the excel map for keys"},
+	
+	{"key":"Language","value":"en-US","description":"language to use in the framework"},
+	
+	
+	{"key":"FilesToLoad","value":"General,Mail,Constants,Paths,Retries,TimeoutsAndDelays,Calendar","description":""},
+	{"key":"BotReadyFile","value":"BotReady","description":"file name of botready config file"},
+	
+	{"key":"ExScreenshotKey","value":"ExScreenshotKey","description":"key to save the screenshot path in the exception data"},
+	
+	{"key":"InsightTAG","value":"[INSIGHT]","description":"tag to identify an Insight log"},
+	{"key":"EnableInsightLog","value":"1","description":"1: Activate log with transaction data (same than botready) for Insight 0: disable log for insight"},
+	
+	{"key":"ItemStatusColumn","value":"TransactionStatus","description":"column name for Transaction Status column in the input excel, this configuration is not required if inputmode is not 2"},
+	{"key":"DateTransactionColumn","value":"Date","description":"column name for Transaction Date column in the input excel, this configuration is not required if inputmode is not 2"},
+	{"key":"ProcessResultColumn","value":"Process Result","description":"column name for Transaction Result column in the input excel, this configuration is not required if inputmode is not 2"},
+	{"key":"StatusKeysForFilterRowsQuery","value":"","description":"list (separated by comma) of keys to get from the language dictionary to filter the rows to process. If the value is empty, it will only take the rows that have an empty status."},
+
+	{"key":"SynchronizeInOrchestrator","value":"0","description":"1 = add the transaction to process queue and uses the retries from the queue"},
+	{"key":"InputMode","value":"2","description":"0: any other source - 1: Orchestrator Queue - 2: Excel - 3: Email"},
+	{"key":"UseQueueRetry","value":"0","description":"1: use retries from Orchestrator Queue - 2: uses retries from config"},
+	
+	
+	{"comment":"the process will use the queue retry only when UseQueueRetry=1 and (SynchronizeInOrchestrator=1 or InputMode=1) I recommend use local retrie because each retry from orchestrator is like a new transaction"},
+	{"key":"MaxRetryNumber","value":"1","description":"If the transaction is synchronized, the retry is from the queue. If > 0, the robot will retry the same transaction which failed with a system exception. Must be an integer value."},
+	{"key":"ConsecutiveErrorsMode","value":"1","description":"0: considers consecutive errors all consecutive exceptions that have occurred - 1: consider consecutive errors all transactions that have finished as system exception"},
+	{"key":"MaxConsecutiveErrors","value":"5","description":"min 1. this number indicate tha max CONSECUTIVE errors, after those error, the process will stop processing more transactions"},
+	
+	{"key":"ForceStopProcess","value":"0","description":" [1]. when an exception occurred (Business or System Exception), the process stops. [0], the process does not stop when the error occurs."},
+	{"key":"UsersAllowedToExecute","value":"","description":"list of users (separated by comma) that can execute the process, if blank the validation is skipped."},
+	
+	
+	{"key":"UserFriendlySE","value":"0","description":" 1 for enable system execution user friendly message. [0] to normal exeption message"}		
+]

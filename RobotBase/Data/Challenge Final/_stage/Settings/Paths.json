@@ -1,0 +1,30 @@
+﻿[
+	{"comment":"FWK configurations"},
+	{"key":"ExceptionPath","value":"..\\Data\\ExceptionScreenshots\\Exception_{0}.png","actions":"file","description":"exception screenshots path. includes file name and extension {0} will be replace by the current date with the ExceptionDateFormat"},
+	{"key":"ExceptionDateFormat","value":"yyyyMMddHHmmssfff","description":"date format in exception screnshot file name"},
+	
+	{"key":"SheetOutputTemplate","value":"Data","description":"output sheet template"},
+	{"key":"OutputTemplatePath","value":"..\\Data\\Templates\\OutputTemplate.xlsx","actions":"file","description":"output template path"},
+	{"key":"OutputPath","value":"..\\Data\\Output\\output_{0}.xlsx","actions":"file","description":"outputh path {0} will be replaced by datetime in OutputNameDateFormat format"},
+	{"key":"OutputNameDateFormat","value":"yyyyMMddHHmmssfff","description":"datetime format to output name"},
+	
+	{"comment":"used for Excel input mode, not needed it if InputMode is not 2"},
+	{"key":"InputFolderPath","value":"..\\Data\\Input\\","actions":"folder","description":"input path"},
+	{"key":"ProcessedFolderPath","value":"..\\Data\\Processed\\","actions":"folder","description":"processed path"},
+	{"key":"InProgressFolderPath","value":"..\\Data\\InProgress\\","actions":"folder","description":"inprogress path"},
+	{"key":"TempFilePath","value":"..\\Data\\Temp\\temp.xlsx","actions":"file","description":"temp file path"},
+	{"key":"TempFileSheet","value":"Sheet1","description":"temp file sheet"},
+	{"key":"TempFileRange","value":"","description":"temp file range"},
+	{"key":"InputTemplateFilePath","value":"..\\Data\\Templates\\InputTemplate.xlsx","actions":"file","description":"input teplate file path"},
+	{"key":"InputSheet","value":"Data","description":"input sheet"},
+	{"key":"InputRange","value":"","description":"input range"},
+
+	
+	{"comment":"used for Email input configurations,  not needed it if InputMode is not 3"},
+	{"key":"PathToSaveEmail","value":"..\\Data\\SavedEmails\\","actions":"folder","description":"path to save emails"},
+	{"key":"GetMailPathAttachments","value":"..\\Data\\SavedEmails\\AttachmentsFiles","actions":"folder","description":"filter to get specific attanchments by name or extension, use empty to not filter"},
+	{"key":"SavedEmailName","value":"{0}_TransactionEmail.eml","description":"emails name - {0} will be replaced by the current datetime in the EmailNameDateFormat"},
+	
+		
+	{"comment":"Process configurations"}
+]

@@ -1,0 +1,6 @@
+[
+	{"comment":"FWK Configurations"},
+	{"key":"MaxRetriesProcess","value":"600","description":"amount of retries of process parallel"},	
+	
+	{"comment":"Process Configurations"}
+]

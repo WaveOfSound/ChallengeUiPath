@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/RobotBase/.local
+/RobotBase/.settings
+/RobotBase/.tmh
+/RobotBase/.screenshots
+/RobotBase/.project
+/RobotBase/.objects

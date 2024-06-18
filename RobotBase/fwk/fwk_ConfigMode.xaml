@@ -1,0 +1,336 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ConfigMode" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strConfigMode" Type="InArgument(x:String)" />
+    <x:Property Name="in_strProjectName" Type="InArgument(x:String)" />
+    <x:Property Name="in_strBaseSettingsFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_strBaseLanguageFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_strEnvSettingsFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_strEnvLanguageFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_jsonEnvironment" Type="InArgument(njl:JObject)" />
+  </x:Members>
+  <this:ConfigMode.in_jsonEnvironment>
+    <InArgument x:TypeArguments="njl:JObject" />
+  </this:ConfigMode.in_jsonEnvironment>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,3223</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ConfigMode_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="36">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="59">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ConfigMode" sap:VirtualizedContainerService.HintSize="747,3158" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Init" sap:VirtualizedContainerService.HintSize="685,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Config Mode - Init&quot;]" />
+    <Switch x:TypeArguments="x:Int32" DisplayName="Switch - Config Mode" Expression="[CInt(in_strConfigMode)]" sap:VirtualizedContainerService.HintSize="685,2783" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch.Default>
+        <ui:LogMessage DisplayName="forced Traditional mode (default)" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;No mode config is selected, the traditional mode will be used.&quot;]" />
+      </Switch.Default>
+      <ui:LogMessage x:Key="1" DisplayName="LogMessage - Traditional mode" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Traditional reading setup mode is selected&quot;]" />
+      <Sequence x:Key="2" DisplayName="Storage Bucket Configuration" sap:VirtualizedContainerService.HintSize="645,2553" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dicStorageBucketConfig" />
+          <Variable x:TypeArguments="scg:IEnumerable(ucas:StorageFileInfo)" Name="ienumResultStorageBucket" />
+          <Variable x:TypeArguments="x:String" Name="strFolderPathConfig" />
+          <Variable x:TypeArguments="ucas:StorageFileInfo[]" Name="arrStorageBucketFiles" />
+          <Variable x:TypeArguments="njl:JArray" Name="jaNotNecessary">
+            <Variable.Default>
+              <VisualBasicValue x:TypeArguments="njl:JArray" ExpressionText="new JArray()" />
+            </Variable.Default>
+          </Variable>
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="LogMessage - Storage Bucket Configuration" sap:VirtualizedContainerService.HintSize="583,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Getting setup configuration from Storage Bucket Orchestrator is selected.&quot;]" />
+        <Assign DisplayName="Assign - strFolderPathConfig" sap:VirtualizedContainerService.HintSize="583,83" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strFolderPathConfig]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(System.IO.File.Exists(New FileInfo(Path.Combine("./Data", in_strProjectName, "_"+in_jsonEnvironment("environment").ToString, "Settings", "StorageBucketSettings.json")).FullName), _
+New DirectoryInfo(Path.Combine("./Data", in_strProjectName,"_"+in_jsonEnvironment("environment").ToString, "Settings")).FullName, _
+New DirectoryInfo(Path.Combine("./Data", in_strProjectName,"_base", "Settings")).FullName)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Framework\InitAllSettingsJson.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="583,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="fwk\fwk_InitAllSettingsJson.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFolder">[strFolderPathConfig]</InArgument>
+            <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigFiles">[{"StorageBucketSettings"}]</InArgument>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[dicStorageBucketConfig]</InOutArgument>
+            <InOutArgument x:TypeArguments="njl:JArray" x:Key="io_jaConfigPaths">[jaNotNecessary]</InOutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <ui:Comment DisplayName="Comment - Get Files" sap:VirtualizedContainerService.HintSize="583,75" sap2010:WorkflowViewState.IdRef="Comment_4" Text="Getting files by project name from Storage Bucket" />
+        <ucas:ListStorageFiles Filter="{x:Null}" TimeoutMS="{x:Null}" Directory="[in_strProjectName]" DisplayName="List Storage Files - StorageBucketName" FolderPath="[dicStorageBucketConfig(&quot;StorageBucketFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="583,133" sap2010:WorkflowViewState.IdRef="ListStorageFiles_1" Recursive="True" Result="[ienumResultStorageBucket]" StorageBucketName="[dicStorageBucketConfig(&quot;StorageBucketName&quot;).ToString]" />
+        <ui:IfElseIf DisplayName="Else If - not ienumResultStorageBucket.Any" sap:VirtualizedContainerService.HintSize="583,52" sap2010:WorkflowViewState.IdRef="IfElseIf_3">
+          <ui:IfElseIf.ConditionBlocks>
+            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+              <ui:IfElseIfBlock BlockType="If" Condition="[not ienumResultStorageBucket.Any]">
+                <ui:IfElseIfBlock.Then>
+                  <Throw DisplayName="Throw - SystemException" Exception="[new SystemException(String.Format(&quot;Can't find files for project name {0}&quot;, in_strProjectName))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </ui:IfElseIfBlock.Then>
+              </ui:IfElseIfBlock>
+            </sc:BindingList>
+          </ui:IfElseIf.ConditionBlocks>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:IfElseIf>
+        <ui:Comment DisplayName="Comment - Filter" sap:VirtualizedContainerService.HintSize="583,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Filter by .json files only" />
+        <Assign DisplayName="Assign - arrStorageBucketFiles" sap:VirtualizedContainerService.HintSize="583,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="ucas:StorageFileInfo[]">[arrStorageBucketFiles]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="ucas:StorageFileInfo[]">[ienumResultStorageBucket.Where(function(e) new FileInfo(e.FileFullPath).Extension=".json").ToArray]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="ucas:StorageFileInfo" CurrentIndex="{x:Null}" DisplayName="For Each - arrStorageBucketFiles" sap:VirtualizedContainerService.HintSize="583,1436" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[arrStorageBucketFiles]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="ucas:StorageFileInfo">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ucas:StorageFileInfo" Name="currentItem" />
+              </ActivityAction.Argument>
+              <ui:IfElseIf DisplayName="Else If - Config - Language" sap:VirtualizedContainerService.HintSize="547,1310" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                <ui:IfElseIf.ConditionBlocks>
+                  <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                    <ui:IfElseIfBlock BlockType="If" Condition="[currentItem.FileFullPath.Contains(&quot;Settings&quot;)]">
+                      <ui:IfElseIfBlock.Then>
+                        <Sequence DisplayName="Then - Config" sap:VirtualizedContainerService.HintSize="496,494" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="si:FileInfo" Name="fiFolderToDowloadConfigFile" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign DisplayName="Assign - strFolderToDowloadFile" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="si:FileInfo">[fiFolderToDowloadConfigFile]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="si:FileInfo">[new FileInfo(Path.Combine(new DirectoryInfo(in_strBaseSettingsFolder).FullName, Path.GetFileName(currentItem.FileFullPath)))]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message - Download config file" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[String.Format(&quot;Download config file from storage bucket {0} to {1}&quot;, currentItem.FileFullPath, fiFolderToDowloadConfigFile.FullName)]" />
+                          <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[fiFolderToDowloadConfigFile.FullName]" DisplayName="Download Storage File - Config Folder" FolderPath="[dicStorageBucketConfig(&quot;StorageBucketFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_4" Path="[currentItem.FileFullPath]" StorageBucketName="[dicStorageBucketConfig(&quot;StorageBucketName&quot;).ToString]" />
+                        </Sequence>
+                      </ui:IfElseIfBlock.Then>
+                    </ui:IfElseIfBlock>
+                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentItem.FileFullPath.Contains(&quot;Language&quot;)]">
+                      <ui:IfElseIfBlock.Then>
+                        <Sequence DisplayName="Then - Language" sap:VirtualizedContainerService.HintSize="496,494" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="si:FileInfo" Name="fiFolderDownloadLanguageFile" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign DisplayName="Assign - fiFolderDownloadLanguageFile" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="si:FileInfo">[fiFolderDownloadLanguageFile]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="si:FileInfo">[new FileInfo(Path.Combine(new DirectoryInfo(in_strBaseLanguageFolder).FullName, Path.GetFileName(currentItem.FileFullPath)))]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message - Download language file" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;Download language file from storage bucket {0} to {1}&quot;, currentItem.FileFullPath, fiFolderDownloadLanguageFile.FullName)]" />
+                          <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[fiFolderDownloadLanguageFile.FullName]" DisplayName="Download Storage File - Language Folder" FolderPath="[dicStorageBucketConfig(&quot;StorageBucketFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_5" Path="[currentItem.FileFullPath]" StorageBucketName="[dicStorageBucketConfig(&quot;StorageBucketName&quot;).ToString]" />
+                        </Sequence>
+                      </ui:IfElseIfBlock.Then>
+                    </ui:IfElseIfBlock>
+                  </sc:BindingList>
+                </ui:IfElseIf.ConditionBlocks>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:IfElseIf>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ForEach>
+      </Sequence>
+      <Sequence x:Key="3" DisplayName="Internal Structure Configuration" sap:VirtualizedContainerService.HintSize="513,1076" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="strEnvironment" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="LogMessage - Internal Structure configuration" sap:VirtualizedContainerService.HintSize="451,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Copy internal setup configuration mode is selected&quot;]" />
+        <Assign DisplayName="Assign base environment" sap:VirtualizedContainerService.HintSize="451,63" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strEnvironment]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">base</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="copy base settings folder" sap:VirtualizedContainerService.HintSize="451,115" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="fwk\fwk_CopyLocalSettingsFiles.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[in_strProjectName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strDestinationSettingsFolder">[in_strBaseSettingsFolder]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strDestinationLanguageFolder">[in_strBaseLanguageFolder]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strEnvironment">[strEnvironment]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <Assign DisplayName="assign strEnvironment" sap:VirtualizedContainerService.HintSize="451.3333333333333,63.333333333333336" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strEnvironment]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_jsonEnvironment("environment").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="fwk\fwk_GetRootSettingsPath.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="451.3333333333333,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="fwk\fwk_GetEnvVariableValueInText.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InOutArgument x:TypeArguments="x:String" x:Key="io_strValueToBeReplaced">[strEnvironment]</InOutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <ui:IfElseIf DisplayName="if exist environment folder" sap:VirtualizedContainerService.HintSize="451.3333333333333,316.6666666666667" sap2010:WorkflowViewState.IdRef="IfElseIf_4">
+          <ui:IfElseIf.ConditionBlocks>
+            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+              <ui:IfElseIfBlock BlockType="If" Condition="[System.IO.Directory.Exists(New DirectoryInfo(Path.Combine(&quot;./Data&quot; , in_strProjectName , &quot;_&quot;+strEnvironment)).FullName)]">
+                <ui:IfElseIfBlock.Then>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="copy environment settings folder" sap:VirtualizedContainerService.HintSize="334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="fwk\fwk_CopyLocalSettingsFiles.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[in_strProjectName]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_strDestinationSettingsFolder">[in_strEnvSettingsFolder]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_strDestinationLanguageFolder">[in_strEnvLanguageFolder]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_strEnvironment">[strEnvironment]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </ui:IfElseIfBlock.Then>
+              </ui:IfElseIfBlock>
+            </sc:BindingList>
+          </ui:IfElseIf.ConditionBlocks>
+        </ui:IfElseIf>
+      </Sequence>
+    </Switch>
+    <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="685,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Config Mode - End&quot;]" />
+  </Sequence>
+</Activity>

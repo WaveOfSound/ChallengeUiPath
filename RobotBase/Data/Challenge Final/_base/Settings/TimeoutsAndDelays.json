@@ -1,0 +1,6 @@
+[
+	{"comment":"FWK configurations"},
+	{"key":"DelayProcess","value":"1000","description":"Delay in milliseconds to check if the Process Transaction is not hang"},
+	
+	{"comment":"Process configurations"}
+]
